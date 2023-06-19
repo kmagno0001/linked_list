@@ -6,6 +6,9 @@ public:
     Iterator( Node<T>* node );
 
     Iterator& operator++ ( void );
+    Iterator& operator++ ( int );
+    Iterator& operator-- ( void );
+    Iterator& operator-- ( int );
     T& operator* ();
     bool operator!= ( const Iterator<T>& iter ) const;
 
@@ -19,8 +22,26 @@ Iterator<T>::Iterator( Node<T>* node ):
 {}
 
 template< typename T>
-Iterator<T>& Iterator<T>::operator++ ( void ){
+Iterator<T>& Iterator<T>::operator++ ( void ) {
     iterator_node = iterator_node->next_node;
+    return *this;
+}
+
+template< typename T>
+Iterator<T>& Iterator<T>::operator++ ( int ) {
+    iterator_node = iterator_node->next_node;
+    return *this;
+}
+
+template< typename T>
+Iterator<T>& Iterator<T>::operator-- ( void ) {
+    iterator_node = iterator_node->prev_node;
+    return *this;
+}
+
+template< typename T>
+Iterator<T>& Iterator<T>::operator-- ( int ) {
+    iterator_node = iterator_node->prev_node;
     return *this;
 }
 
@@ -31,5 +52,5 @@ T& Iterator<T>::operator* ( void ) {
 
 template< typename T>
 bool Iterator<T>::operator!= ( const Iterator<T>& iter ) const {
-    return  iterator_node != iter.iterator_node;
+    return  iterator_node != iter.iterator_node ;
 }

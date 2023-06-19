@@ -7,6 +7,7 @@ int main( void ) {
 
     list[0] = 7;
     list[8] = 13;
+    list >> 3;
     lst << 18;
     
     for ( auto i: list ) {
@@ -15,9 +16,36 @@ int main( void ) {
 
     std::cout << "\n";
 
-    for ( auto& i: lst ) {
+    for ( auto i: lst ) {
         std::cout << i  << " ";
     }
+
+    std::cout << "\n";
+
+    for ( auto i = lst.begin(); i != lst.end(); ++i ) {
+        std::cout << *i  << " ";
+    }
+
+    std::cout << "\n";
+    lst << 9;
+    
+    for ( auto i = lst.begin(); i != lst.end(); i++ ) {
+        std::cout << *i  << " ";
+    }
+
+    std::cout << "\n";
+
+    for ( auto i = lst.rbegin(); i != lst.rend(); --i ) {
+        std::cout << *i  << " ";
+    }
+    
+    std::cout << "\n";
+
+    for ( auto i = lst.rbegin(); i != lst.rend(); i-- ) {
+        std::cout << *i  << " ";
+    }
+
+    std::cout << "\n";
     
     return 0;
 }
